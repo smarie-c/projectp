@@ -4,7 +4,16 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'home#index'
+
+  get '/' => 'home#index'
+
+  get 'tournoi/create_view' => 'tournoi#index'
+  get 'tournoi/create' => 'tournoi#index'
+  get 'tournoi/list' => 'tournoi#index'
+  get 'tournoi/info' => 'tournoi#index'
+  get 'tournoi/update_view' => 'tournoi#index'
+  get 'tournoi/update' => 'tournoi#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

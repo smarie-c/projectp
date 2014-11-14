@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141114102126) do
+ActiveRecord::Schema.define(version: 20141114170432) do
+
+  create_table "phases", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "nb_win"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tournois", force: true do |t|
+    t.string   "name"
+    t.integer  "nb_player"
+    t.date     "date"
+    t.integer  "nb_phase"
+    t.string   "cash_prize"
+    t.string   "description"
+    t.string   "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
