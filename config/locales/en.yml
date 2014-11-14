@@ -21,3 +21,5 @@
 
 en:
   hello: "Hello world"
+  tournament_list: "tournament list"
+  tournament_create: "create a tournament"

@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20141114170432) do
     t.integer  "nb_player"
     t.date     "date"
     t.integer  "nb_phase"
-    t.string   "cash_prize"
-    t.string   "description"
+    t.text     "cash_prize"
+    t.text     "description"
     t.string   "price"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20141114170432) do
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
+    t.string   "login",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"

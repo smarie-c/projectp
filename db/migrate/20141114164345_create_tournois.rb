@@ -5,8 +5,8 @@ class CreateTournois < ActiveRecord::Migration
       t.integer :nb_player
       t.date :date
       t.integer :nb_phase
-      t.string :cash_prize
-      t.string :description
+      t.text :cash_prize
+      t.text :description
       t.string :price
 
       t.timestamps

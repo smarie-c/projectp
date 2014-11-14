@@ -1,2 +1,7 @@
-h1 Tournoi#list
-p Find me in app/views/tournoi/list.html.slim
+<% @tournoi.each do |t| %>
+	<%= link_to t.name, 'tournoi/info/' + t.id.to_s  %>
+	<% t.description %>
+	<% t.cash_prize %>
+	<% t.price %>
+	<% t.date %>
+<% end %>
