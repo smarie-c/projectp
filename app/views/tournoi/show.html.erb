@@ -1,0 +1,15 @@
+<%= @tournoi.name %>
+<%= @tournoi.description %>
+<%= @tournoi.cash_prize %>
+<%= @tournoi.price %>
+<%= @tournoi.date %>
+
+	<%= form_tag(tournoi_delete_path, method: "put") do  %>
+	<%= hidden_field_tag( :id, @tournoi.id,required: true) %>
+	<%= submit_tag('update') %>
+	<% end %>
+
+	<%= form_tag(tournoi_delete_path, method: "delete") do  %>
+	<%= hidden_field_tag( :id, @tournoi.id,required: true) %>
+	<%= submit_tag('delete') %>
+	<% end %>

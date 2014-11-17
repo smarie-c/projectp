@@ -8,6 +8,7 @@ class CreateTournois < ActiveRecord::Migration
       t.text :cash_prize
       t.text :description
       t.string :price
+      t.references :user
 
       t.timestamps
     end

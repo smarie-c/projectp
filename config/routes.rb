@@ -8,12 +8,12 @@ Rails.application.routes.draw do
 
   get '/' => 'home#index'
 
-  get 'tournoi/create_view' => 'tournoi#create_view'
-  get 'tournoi/create' => 'tournoi#create'
-  get 'tournoi/list' => 'tournoi#list'
-  get 'tournoi/info/:id' => 'tournoi#info'
-  get 'tournoi/update_view' => 'tournoi#update_view'
-  get 'tournoi/update' => 'tournoi#update'
+  get '/tournoi/create_view' => 'tournoi#create_view'
+  post '/tournoi/create' => 'tournoi#create'
+  get '/tournoi/index' => 'tournoi#index'
+  get '/tournoi/show/:id' => 'tournoi#show'
+  put '/tournoi/update' => 'tournoi#update'
+  delete '/tournoi/delete' => 'tournoi#delete'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

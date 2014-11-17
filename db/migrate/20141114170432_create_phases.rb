@@ -4,6 +4,7 @@ class CreatePhases < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.integer :nb_win
+      t.references :tournoi
 
       t.timestamps
     end

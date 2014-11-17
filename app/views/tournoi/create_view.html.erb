@@ -1,18 +1,18 @@
 <%= form_tag(tournoi_create_path, method: "post") do  %>
 
-			<%= text_field :name, value: params[:name],required: true %><br />
+			<%= text_field_tag( :name, params[:name],required: true) %>
 
-			<%= text_area :description, value: params[:description],size: "60x12",required: true %><br />
+			<%= text_area_tag( :description, params[:description],size: "60x12",required: true) %>
 
-			<%= text_area :cash_prize, value: params[:cash_prize],size: "60x12",required: true %><br />
+			<%= text_area_tag( :cash_prize, params[:cash_prize],size: "60x12",required: true) %>
 
-			<%= text_field :price, value: params[:price],required: true %><br />
+			<%= text_field_tag( :price, params[:price],required: true) %>
 
-			<%= number_field :nb_player, value: params[:nb_player],required: true %><br />
+			<%= number_field_tag( :nb_player, params[:nb_player],required: true) %>
 
-			<%= number_field :nb_phase, value: params[:nb_phase],required: true %><br />
+			<%= number_field_tag( :nb_phase, params[:nb_phase],required: true) %>
 
-			<%= date_field :date, value: Date.today.to_s,required: true %>
+			<%= date_field_tag( :date, Date.today.to_s,required: true) %>
 
-  	<%= submit('create') %>
+  	<%= submit_tag('create') %>
 <% end %>
