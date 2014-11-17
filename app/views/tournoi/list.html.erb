@@ -1,7 +1,0 @@
-<% @tournoi.each do |t| %>
-	<%= link_to t.name, 'tournoi/info/' + t.id.to_s  %>
-	<% t.description %>
-	<% t.cash_prize %>
-	<% t.price %>
-	<% t.date %>
-<% end %>
