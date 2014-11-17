@@ -5,13 +5,23 @@
 	<% t.price %>
 	<% t.date %>
 
-	<%= form_tag(tournoi_delete_path, method: "put") do  %>
-	<%= hidden_field_tag( :id, t.id,required: true) %>
-	<%= submit_tag('update') %>
-	<% end %>
+	<% if t.id == current_user.id %>
 
-	<%= form_tag(tournoi_delete_path, method: "delete") do  %>
-	<%= hidden_field_tag( :id, t.id,required: true) %>
-	<%= submit_tag('delete') %>
+		<%= form_tag(tournoi_delete_path, method: "put") do  %>
+			<%= hidden_field_tag( :id, t.id,required: true) %>
+			<%= text_area_tag( :description, t.description,size: "60x12",required: true) %>
+			<%= text_area_tag( :cash_prize, t.cash_prize,size: "60x12",required: true) %>
+			<%= text_field_tag( :price, t.price,required: true) %>
+			<%= number_field_tag( :nb_player, t.nb_player,required: true) %>
+			<%= number_field_tag( :nb_phase, t.nb_phase,required: true) %>
+			<%= date_field_tag( :date, t.date,required: true) %>
+			<%= submit_tag('update') %>
+		<% end %>
+
+		<%= form_tag(tournoi_delete_path, method: "delete") do  %>
+			<%= hidden_field_tag( :id, t.id,required: true) %>
+			<%= submit_tag('delete') %>
+		<% end %>
+
 	<% end %>
 <% end %>
