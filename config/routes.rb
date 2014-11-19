@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
 #phase
   get '/phase/create_view' => 'phase#create_view'
+  get '/tournoi/phase/:id' => 'tournoi#index_by_tournoi_id'
   post '/phase/create' => 'phase#create'
   get '/phase/index' => 'phase#index'
   get '/phase/show/:id' => 'phase#show'

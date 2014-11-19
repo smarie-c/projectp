@@ -20,6 +20,13 @@ class PhaseController < ApplicationController
 		@phase = Phase.all
 	end
 
+	def index_by_tournoi_id
+		if (params[:id].to_i.to_s != params[:id])
+	      redirect_to root_path, :flash => { :alert => "Le tournoi recherché n'existe pas" } and return
+	    end
+		@phase = Phase.where("tournoi_id = #{params[:id]}")
+	end
+
 	def show
 	    if (params[:id].to_i.to_s != params[:id])
 	      redirect_to root_path, :flash => { :alert => "La phase recherché n'existe pas" } and return
