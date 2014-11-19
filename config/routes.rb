@@ -1,23 +1,4 @@
 Rails.application.routes.draw do
-  get 'suscriber/create'
-
-  get 'suscriber/index'
-
-  get 'suscriber/show'
-
-  get 'suscriber/update'
-
-  get 'suscriber/delete'
-
-  get 'admin/create'
-
-  get 'admin/index'
-
-  get 'admin/show'
-
-  get 'admin/update'
-
-  get 'admin/delete'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
