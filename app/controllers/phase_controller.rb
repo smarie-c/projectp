@@ -28,14 +28,14 @@ class PhaseController < ApplicationController
 	end
 
 	def show
-	    if (params[:id].to_i.to_s != params[:id])
-	      redirect_to root_path, :flash => { :alert => "La phase recherché n'existe pas" } and return
-	    end
 	    begin
-	      @phase = Phase.find(params[:id])
+	      @phase = Phase.friendly.find(params[:id])
 	    rescue Exception => e
 	      redirect_to root_path, :flash => { :alert => "La phase recherché n'existe pas" } and return
 	    end
+        if params[:id] != @phase.friendly_id
+ 	      redirect_to '/phase/show/' + @phase.friendly_id
+  	    end
 	end
 
 	def update
