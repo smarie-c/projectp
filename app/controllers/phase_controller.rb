@@ -55,7 +55,7 @@ class PhaseController < ApplicationController
 		if params[:description]
 			@phase.description = params[:description]
 		end
-		if params[:nb_win]phase
+		if params[:nb_win]
 			@phase.nb_win = params[:nb_win]
 		end
 		begin
