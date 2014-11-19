@@ -21,7 +21,7 @@ class TournoiController < ApplicationController
   end
 
   def index
-    @tournoi = Tournoi.all
+    @tournois = Tournoi.all
   end
 
   def show

@@ -17,7 +17,7 @@ class PhaseController < ApplicationController
 	end
 
 	def index
-		@phase = Phase.all
+		@phases = Phase.all
 	end
 
 	def index_by_tournoi_id

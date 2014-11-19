@@ -14,6 +14,7 @@ class SuscriberController < ApplicationController
   end
 
   def index
+    @suscribers = Suscriber.all
   end
 
   def show

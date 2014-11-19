@@ -13,6 +13,7 @@ class AdminController < ApplicationController
   end
 
   def index
+    @admins = Admin.all
   end
 
   def show
