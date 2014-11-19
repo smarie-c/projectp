@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+  get 'suscriber/create'
+
+  get 'suscriber/index'
+
+  get 'suscriber/show'
+
+  get 'suscriber/update'
+
+  get 'suscriber/delete'
+
+  get 'admin/create'
+
+  get 'admin/index'
+
+  get 'admin/show'
+
+  get 'admin/update'
+
+  get 'admin/delete'
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -8,7 +28,7 @@ Rails.application.routes.draw do
 
   get '/' => 'home#index'
 
-#tournoi
+#tournoi rest
   get '/tournoi/create_view' => 'tournoi#create_view'
   post '/tournoi/create' => 'tournoi#create'
   get '/tournoi/index' => 'tournoi#index'
@@ -16,15 +36,31 @@ Rails.application.routes.draw do
   put '/tournoi/update' => 'tournoi#update'
   delete '/tournoi/delete' => 'tournoi#delete'
 
-#phase
+#phase rest
   get '/phase/create_view' => 'phase#create_view'
-  get '/tournoi/phase/:id' => 'tournoi#index_by_tournoi_id'
   post '/phase/create' => 'phase#create'
   get '/phase/index' => 'phase#index'
   get '/phase/show/:id' => 'phase#show'
   put '/phase/update' => 'phase#update'
   delete '/phase/delete' => 'phase#delete'
 
+#phase ++
+  get '/tournoi/phase/:id' => 'tournoi#index_by_tournoi_id'
+
+#admin rest
+  get '/admin/create_view' => 'admin#create_view'
+  post '/admin/create' => 'admin#create'
+  get '/admin/index' => 'admin#index'
+  get '/admin/show/:id' => 'admin#show'
+  put '/admin/update' => 'admin#update'
+  delete '/admin/delete' => 'admin#delete'
+#suscriber rest
+  get '/suscriber/create_view' => 'suscriber#create_view'
+  post '/suscriber/create' => 'suscriber#create'
+  get '/suscriber/index' => 'suscriber#index'
+  get '/suscriber/show/:id' => 'suscriber#show'
+  put '/suscriber/update' => 'suscriber#update'
+  delete '/suscriber/delete' => 'suscriber#delete'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
