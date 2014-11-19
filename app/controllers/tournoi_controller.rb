@@ -25,26 +25,26 @@ class TournoiController < ApplicationController
   end
 
   def show
-    if (params[:id].to_i.to_s != params[:id])
-      redirect_to root_path, :flash => { :alert => "Le tournoi recherché n'existe pas" } and return
-    end
     begin
-      @tournoi = Tournoi.find(params[:id])
+      @tournoi = Tournoi.friendly.find(params[:id])
     rescue Exception => e
-      redirect_to root_path, :flash => { :alert => "Le tournoi recherché n'existe pas" } and return
+      redirect_to root_path, :flash => { :alert => "Le tournoi recherché n'existe pas2" } and return
+    end
+    if params[:id] != @tournoi.friendly_id
+       redirect_to '/tournoi/show/' + @tournoi.friendly_id
     end
   end
 
   def update
     if (params[:id].to_i.to_s != params[:id])
-      redirect_to root_path, :flash => { :alert => "Le tournoi recherché n'existe pas" } and return
+      redirect_to root_path, :flash => { :alert => "Le tournoi recherché n'existe pas3" } and return
     end
     @tournoi = Tournoi.find(params[:id])
     if !@tournoi
-      redirect_to root_path, :flash => { :alert => "Le tournoi recherché n'existe pas" } and return
+      redirect_to root_path, :flash => { :alert => "Le tournoi recherché n'existe pas4" } and return
     end
     if @tournoi.user_id != current_user.id
-      redirect_to root_path, :flash => { :alert => "Le tournoi recherché n'existe pas" } and return
+      redirect_to root_path, :flash => { :alert => "Le tournoi recherché n'existe pas5" } and return
     end
     if params[:nb_player]
       @tournoi.nb_player = params[:nb_player]

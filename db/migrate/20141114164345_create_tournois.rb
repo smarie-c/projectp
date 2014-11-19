@@ -12,5 +12,8 @@ class CreateTournois < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_column :tournois, :slug, :string
+    add_index :tournois, :slug, unique: true
   end
 end

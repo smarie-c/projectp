@@ -1,0 +1,10 @@
+<%= form_tag(phase_create_path, method: "post") do  %>
+
+			<%= text_field_tag( :name, params[:name],required: true) %>
+
+			<%= text_area_tag( :description, params[:description],size: "60x12",required: true) %>
+
+			<%= number_field_tag( :nb_win, params[:nb_win],required: true) %>
+
+  	<%= submit_tag('create') %>
+<% end %>

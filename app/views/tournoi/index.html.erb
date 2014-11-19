@@ -1,11 +1,11 @@
-<% @tournoi.each do |t| %>
+<% @tournois.each do |t| %>
 	<%= link_to t.name, '/tournoi/show/' + t.id.to_s  %>
-	<% t.description %>
-	<% t.cash_prize %>
-	<% t.price %>
-	<% t.date %>
+	<%= t.description %>
+	<%= t.cash_prize %>
+	<%= t.price %>
+	<%= t.date %>
 
-	<% if t.id == current_user.id %>
+	<% if t.user_id == current_user.id %>
 
 		<%= form_tag(tournoi_delete_path, method: "put") do  %>
 			<%= hidden_field_tag( :id, t.id,required: true) %>

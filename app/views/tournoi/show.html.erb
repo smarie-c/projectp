@@ -4,7 +4,7 @@
 <%= @tournoi.price %>
 <%= @tournoi.date %>
 
-<% if @tournoi.id == current_user.id %>
+<% if @tournoi.user_id == current_user.id %>
 
 	<%= form_tag(tournoi_delete_path, method: "put") do  %>
 	<%= hidden_field_tag( :id, @tournoi.id,required: true) %>
