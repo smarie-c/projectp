@@ -1,26 +1,23 @@
 <%= @tournoi.name %>
 <%= @tournoi.description %>
 <%= @tournoi.cash_prize %>
-<%= @tournoi.price %>
 <%= @tournoi.date %>
 
 <% if @tournoi.user_id == current_user.id %>
 
-	<%= form_tag(tournoi_delete_path, method: "put") do  %>
-		<%= hidden_field_tag( :id, @tournoi.id,required: true) %>
-		<%= text_area_tag( :description, @tournoi.description,size: "60x12",required: true) %>
-		<%= text_area_tag( :cash_prize, @tournoi.cash_prize,size: "60x12",required: true) %>
-		<%= text_field_tag( :price, @tournoi.price,required: true) %>
-		<%= number_field_tag( :nb_player, @tournoi.nb_player,required: true) %>
-		<%= number_field_tag( :nb_phase, @tournoi.nb_phase,required: true) %>
-		<%= date_field_tag( :date, @tournoi.date,required: true) %>
-		<%= submit_tag('update') %>
-	<% end %>
+		<%= bootstrap_form_tag url: tournoi_update_path, method: "put" do |f| %>
+			<%= f.hidden_field :id, :value => @tournoi.id,required: true %>
+			<%= f.text_area :description, :value =>  @tournoi.description,size: "60x12",required: true %>
+			<%= f.text_area :cash_prize, :value =>  @tournoi.cash_prize,size: "60x12",required: true %>
+			<%= f.number_field :nb_phase, :value =>  @tournoi.nb_phase,required: true %>
+			<%= f.date_field :date, :value => Date.today.to_s,required: true %>
+			<%= f.submit "update", class: "btn btn-success" %>
+		<% end %>
 
-	<%= form_tag(tournoi_delete_path, method: "delete") do  %>
-		<%= hidden_field_tag( :id, @tournoi.id,required: true) %>
-		<%= submit_tag('delete') %>
-	<% end %>
+		<%= bootstrap_form_tag url: tournoi_delete_path, method: "delete" do |f| %>
+			<%= f.hidden_field :id, :value => @tournoi.id,required: true %>
+			<%= f.submit "delete", class: "btn btn-danger" %>
+		<% end %>
 
 	<%= form_tag(phase_create_view_path, method: "post") do  %>
 		<%= hidden_field_tag( :tournoi_id, @tournoi.id,required: true) %>

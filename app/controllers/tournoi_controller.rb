@@ -5,12 +5,10 @@ class TournoiController < ApplicationController
   def create
     tournoi = Tournoi.new
     tournoi.name = params[:name]
-    tournoi.nb_player = params[:nb_player]
     tournoi.date = params[:date]
     tournoi.nb_phase = params[:nb_phase]
     tournoi.cash_prize = params[:cash_prize]
     tournoi.description = params[:description]
-    tournoi.price = params[:price]
     tournoi.user_id = current_user.id
     begin
       tournoi.save
@@ -46,9 +44,6 @@ class TournoiController < ApplicationController
     if @tournoi.user_id != current_user.id
       redirect_to root_path, :flash => { :alert => "Le tournoi recherché n'existe pas5" } and return
     end
-    if params[:nb_player]
-      @tournoi.nb_player = params[:nb_player]
-    end
     if params[:date]
       @tournoi.date = params[:date]
     end
@@ -60,9 +55,6 @@ class TournoiController < ApplicationController
     end
     if params[:description]
       @tournoi.description = params[:description]
-    end
-    if params[:price]
-      @tournoi.price = params[:price]    
     end
     begin
       @tournoi.save

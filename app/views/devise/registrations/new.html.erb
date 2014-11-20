@@ -2,6 +2,8 @@
 
 <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), :class => 'form-signin') do |f| %>
 
+<%= f.alert_message "Please fix the errors below.", error_summary: true %>
+
    <%= f.email_field :email, required: true, autofocus: true, label: "Email *"  %>
     <%= f.password_field :password, required: true, label: "Mot de passe *"  %>
     <%= f.password_field :password_confirmation, required: true, label: "Confirmer le mot de passe *"  %>
