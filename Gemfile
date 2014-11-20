@@ -13,7 +13,7 @@ group :production do
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.4'
-
+gem 'foundation-rails'
 gem 'will_paginate', '~> 3.0.5'
 #bootstrap
 gem "therubyracer"
