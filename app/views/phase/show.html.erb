@@ -1,0 +1,5 @@
+name : <%= @phase.name %><br/>
+description :<%= @phase.description %><br/>
+nb_win :<%= @phase.nb_win %><br/>
+<% t = Tournoi.find(@phase.tournoi_id) %>
+name tournoi :<%= t.name %><br/>

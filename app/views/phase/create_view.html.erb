@@ -1,5 +1,7 @@
 <%= form_tag(phase_create_path, method: "post") do  %>
 
+			<%= hidden_field_tag( :tournoi_id, params[:tournoi_id],required: true) %>
+
 			<%= text_field_tag( :name, params[:name],required: true) %>
 
 			<%= text_area_tag( :description, params[:description],size: "60x12",required: true) %>

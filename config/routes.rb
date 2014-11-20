@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   delete '/tournoi/delete' => 'tournoi#delete'
 
 #phase rest
-  get '/phase/create_view' => 'phase#create_view'
+  post '/phase/create_view' => 'phase#create_view'
   post '/phase/create' => 'phase#create'
   get '/phase/index' => 'phase#index'
   get '/phase/show/:id' => 'phase#show'

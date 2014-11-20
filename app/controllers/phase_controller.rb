@@ -1,5 +1,11 @@
 class PhaseController < ApplicationController
 	def create_view
+		begin
+	      t = Tournoi.find(params[:tournoi_id])
+	    rescue Exception => e
+	      redirect_to root_path, :flash => { :alert => "Le tournoi recherché n'existe pas" } and return
+	    end
+	    #compter le nombre de phase existant et le comparer au nombre de phase max, rediriger en cas d'erreur
 	end
 
 	def create
@@ -83,6 +89,5 @@ class PhaseController < ApplicationController
 			redirect_to root_path, :flash => { :alert => "La phase recherché n'existe pas 4" } and return
 		end
 		redirect_to root_path, :flash => { :notice => "done" } and return
-		end
 	end
 end
