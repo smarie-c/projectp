@@ -17,7 +17,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'will_paginate', '~> 3.0.5'
 #bootstrap
 gem "therubyracer"
-gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-sass', '~> 3.3.1'
 gem 'bootstrap_form'
 gem 'autoprefixer-rails'
 # Use Uglifier as compressor for JavaScript assets
