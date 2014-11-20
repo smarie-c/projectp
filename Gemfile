@@ -12,7 +12,7 @@ group :production do
   gem 'rails_12factor'
 end
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 4.0.4'
 
 gem 'will_paginate', '~> 3.0.5'
 #bootstrap
