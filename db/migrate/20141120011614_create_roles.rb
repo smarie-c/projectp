@@ -4,7 +4,7 @@ class CreateRoles < ActiveRecord::Migration
     	t.references :tournoi
     	t.string :name
     	t.string :price
-    	t_integer :nb_place
+    	t.integer :nb_place
       	t.timestamps
     end
   end

@@ -1,10 +1,9 @@
 class SuscriberController < ApplicationController
   def create
     suscriber = Suscriber.new
-    suscriber.name = params[:user_id]
-    suscriber.nb_player = params[:role]
+    suscriber.user_id = params[:user_id]
+    suscriber.role_id = params[:role_id]
     suscriber.payd = 0
-    suscriber.date = params[:tournoi_id]
     begin
       suscriber.save
     rescue Exception => e

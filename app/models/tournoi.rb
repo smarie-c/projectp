@@ -3,6 +3,6 @@ class Tournoi < ActiveRecord::Base
 	belongs_to :user
 	has_many :phase, dependent: :destroy
 	has_many :admin, dependent: :destroy
-	has_many :suscriber, dependent: :destroy
+	has_many :role, dependent: :destroy
 	friendly_id :name, :use => [:slugged, :finders]
 end
