@@ -1,12 +1,30 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Projetp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+<header>
+<div class="small-12 collumns">
+    <% if user_signed_in? %>
+      <%= link_to current_user.email, edit_user_registration_path, :class => "login" %>
+    <% end %>
+  <div class="title">Nexus</div>
+
+</div>
+  
+</header>
+
+
 
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
@@ -16,17 +34,16 @@
 <% end %>
 
 <p class="navbar-text pull-right">
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-          <%= link_to t('tournament_list'), tournoi_index_path, :class => 'btn btn-large btn-success'  %>
-        <%= link_to t('tournament_create'), tournoi_create_view_path, :class => 'btn btn-large btn-info'  %>
+<!--<% if user_signed_in? %>
+<%= link_to current_user.email, edit_user_registration_path, :class => "button [radius round]"  %>
+<%= link_to("Logout", destroy_user_session_path, method: :delete, :class => "btn btn-large ") %>
+  <%= link_to t('tournament_list'), tournoi_index_path, :class => 'btn btn-large btn-success'  %>
+  <%= link_to t('tournament_create'), tournoi_create_view_path, :class => 'btn btn-large btn-info'  %>
   <%= link_to t('home'), root_path, :class => 'btn btn-small btn-warning' %>
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-small btn-primary' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-small btn-danger'  %>
 <% else %>
   <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-small btn-success'  %> |
   <%= link_to "Login", new_user_session_path, :class => 'btn btn-small btn-info'  %>
-<% end %>
+<% end %> -->
 <div class="container">
 
 <%= yield %>
@@ -36,6 +53,13 @@
 
         <% end %>
       </p>
-</div>
-</body>
+
+
+
+
+
+
+
+
+  </body>
 </html>

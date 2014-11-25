@@ -4,12 +4,66 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "foundation_and_overrides";
 
+@import "compass/css3";
+@import "compass/typography/links/link-colors";
+
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic,400italic);
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('font/BebasNeue.otf');
+}
+
+$default-text-shadow-color: rgba(white, 0.6);
+$default-text-shadow-blur: 3px;
+
+@mixin link-colors($normal, $hover: false, $active: false, $visited: false, $focus: false) {
+  color: $normal;
+  text-decoration: none;	
+  @if $visited {
+    &:visited {
+      color: $visited;
+    }
+  }
+  @if $focus {
+    &:focus {
+      color: $focus;
+      @include single-text-shadow;
+    }
+  }
+  @if $hover {
+    &:hover {
+      color: $hover;
+      @include single-text-shadow;
+    }
+  }
+  @if $active {
+    &:active {
+      color: $active;
+      @include single-text-shadow;
+    }
+  }
+}
 
 body {
-	padding-top: 40px;
-	padding-bottom: 40px;
-	background-color: #f5f5f5;
+	background-color: #eeede5;
+	font-family: 'Source Sans Pro', sans-serif;
+	header .collumns {
+		background-color: #806d65;
+		.title {
+			font-family: 'BebasNeue';
+			color: #ffffff;
+			letter-spacing: 3px;
+			text-align: center;
+			font-size: 3.5em;
+		}
+		.login {
+			@include link-colors(#fff, #fff, #fff, #fff, #fff);
+			align: right;
+
+		}
+	}
 }
 
 .form-signin {
