@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141119141434) do
+ActiveRecord::Schema.define(version: 20141120011614) do
 
   create_table "admins", force: true do |t|
     t.integer  "user_id"
@@ -28,12 +28,23 @@ ActiveRecord::Schema.define(version: 20141119141434) do
     t.integer  "tournoi_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
+  end
+
+  add_index "phases", ["slug"], name: "index_phases_on_slug", unique: true
+
+  create_table "roles", force: true do |t|
+    t.integer  "tournoi_id"
+    t.string   "name"
+    t.string   "price"
+    t.integer  "nb_place"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "suscribers", force: true do |t|
     t.integer  "user_id"
-    t.integer  "role"
-    t.integer  "tournoi_id"
+    t.integer  "role_id"
     t.integer  "payd"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -41,16 +52,17 @@ ActiveRecord::Schema.define(version: 20141119141434) do
 
   create_table "tournois", force: true do |t|
     t.string   "name"
-    t.integer  "nb_player"
     t.date     "date"
     t.integer  "nb_phase"
     t.text     "cash_prize"
     t.text     "description"
-    t.string   "price"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
+
+  add_index "tournois", ["slug"], name: "index_tournois_on_slug", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
